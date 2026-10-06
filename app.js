@@ -25,11 +25,19 @@
     });
   }
 
+  // Pages set <body data-flow="…"> to choose which flow their buttons launch
+  const isCompliance = document.body.dataset.flow === "compliance";
+  const startLink = isCompliance ? cfg.complianceStartLinkUrl : cfg.startLinkUrl;
+
   // ── Launcher mode: our buttons open the Moxo Flow Launcher ──
-  if (cfg.mode !== "webhook") {
-    if (cfg.startLinkUrl) {
+  if (isCompliance || cfg.mode !== "webhook") {
+    if (startLink) {
       $("launcher").hidden = false;
-      bindStartLink(cfg.startLinkUrl);
+      bindStartLink(startLink);
+      return;
+    }
+    if (isCompliance) {
+      $("launcher-missing").hidden = false;
       return;
     }
     if (!cfg.launcherKey) {

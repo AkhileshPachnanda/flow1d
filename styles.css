@@ -135,3 +135,25 @@ input.invalid, select.invalid, textarea.invalid { border-color: #c0392b; }
 .modal-close { position: absolute; top: 10px; right: 10px; z-index: 1; width: 32px; height: 32px; border-radius: 50%; border: 0; background: rgba(15,34,56,.08); color: var(--ink); cursor: pointer; font-size: 14px; }
 .modal-close:hover { background: rgba(15,34,56,.16); }
 @media (max-width: 640px) { .modal { padding: 0; } .modal-box { height: 100%; border-radius: 0; } }
+
+/* Regulatory compliance page */
+.card-link { display: inline-block; margin-top: 1rem; font-size: .88rem; font-weight: 600; color: var(--gold); }
+.card-link:hover { color: #9a7a48; }
+.steps.phases { grid-template-columns: repeat(4, 1fr); }
+.phases p { font-size: .88rem; }
+.triggers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 2.5rem; }
+.triggers article { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.triggers p, .team p { color: var(--ink-2); margin: 0; font-size: .92rem; }
+.team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 2.5rem; }
+.team article { border-top: 1px solid var(--gold); padding-top: 1rem; }
+.team h4 { font-size: 1.15rem; }
+.team-note { color: var(--ink-2); margin-top: 2.5rem; max-width: 760px; }
+.outcomes { columns: 2; column-gap: 48px; max-width: 900px; }
+.outcomes li { break-inside: avoid; }
+@media (max-width: 1000px) {
+  .steps.phases, .team { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .steps.phases, .team, .triggers { grid-template-columns: 1fr; }
+  .outcomes { columns: 1; }
+}

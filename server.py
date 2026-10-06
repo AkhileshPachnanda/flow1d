@@ -46,7 +46,7 @@ FIELD_MAP = {
     "finance_email": "Finance Contact Email",
 }
 
-PUBLIC = {"/index.html", "/styles.css", "/app.js", "/config.js"}
+PUBLIC = {"/index.html", "/regulatory.html", "/styles.css", "/app.js", "/config.js"}
 
 
 def build_payload(d):

@@ -157,3 +157,15 @@ input.invalid, select.invalid, textarea.invalid { border-color: #c0392b; }
   .steps.phases, .team, .triggers { grid-template-columns: 1fr; }
   .outcomes { columns: 1; }
 }
+
+/* Home: both flows side by side */
+.intake-head { max-width: 720px; margin-bottom: 3rem; }
+.intake-head p:not(.eyebrow) { color: rgba(255,255,255,.78); }
+.flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+.flow-grid .launch-card .eyebrow { margin-bottom: .6rem; }
+.launch-meta a { color: var(--gold); font-weight: 600; }
+.intake-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 40px; margin-top: 2.5rem; color: rgba(255,255,255,.85); }
+.intake-foot .ticks { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 0; }
+.intake-foot .ticks li { margin: 0; }
+.intake-foot .fine { max-width: 520px; margin: 0; }
+@media (max-width: 1000px) { .flow-grid { grid-template-columns: 1fr; } }

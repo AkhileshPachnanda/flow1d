@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-flow="compliance">
+<body>
   <!-- Fictional firm, built for a Moxo demo -->
   <header class="nav">
     <div class="wrap nav-inner">
@@ -18,7 +18,7 @@
         <a href="index.html#practice">Practice Areas</a>
         <a href="#process">How It Works</a>
         <a href="index.html">New Matters</a>
-        <a href="#intake" class="btn btn-sm js-start-matter">Start a Compliance Review</a>
+        <a href="#intake" class="btn btn-sm js-start-compliance">Start a Compliance Review</a>
       </nav>
     </div>
   </header>
@@ -29,7 +29,7 @@
       <h1>Every jurisdiction.<br />One compliance picture.</h1>
       <p class="lede">Expanding into a new state, or facing a rule change in one you already operate in? We map what applies where, assign every obligation to an owner, collect the evidence, close the gaps and handle the filings, all in one secure portal your teams and ours share.</p>
       <div class="hero-cta">
-        <a href="#intake" class="btn js-start-matter">Start a compliance review</a>
+        <a href="#intake" class="btn js-start-compliance">Start a compliance review</a>
         <a href="#process" class="btn btn-ghost">See how it works</a>
       </div>
       <dl class="stats">
@@ -118,18 +118,18 @@
       </div>
 
       <div class="intake-panel">
-        <div id="launcher" class="launch-card" hidden>
+        <div id="launcher-compliance" class="launch-card" hidden>
           <div class="seal">§</div>
           <h3>Start a multi-state compliance review</h3>
           <p>Tell us what you need, which jurisdictions are involved and how urgent it is. You'll verify your email, then go straight into your secure portal.</p>
-          <button type="button" class="btn btn-block js-start-matter">Start a compliance review</button>
+          <button type="button" class="btn btn-block js-start-compliance">Start a compliance review</button>
           <ul class="launch-meta">
             <li>About 5 minutes</li>
             <li>No account needed</li>
             <li>Confidential</li>
           </ul>
         </div>
-        <div id="launcher-missing" class="notice" hidden>
+        <div id="launcher-compliance-missing" class="notice" hidden>
           <strong>Start Link not configured.</strong>
           Add it to <code>config.js</code> → <code>complianceStartLinkUrl</code>.
         </div>

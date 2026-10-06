@@ -74,23 +74,19 @@
   </section>
 
   <section id="intake" class="section intake">
-    <div class="wrap intake-inner">
-      <div class="intake-copy">
+    <div class="wrap">
+      <div class="intake-head">
         <p class="eyebrow">Start a Matter</p>
         <h2>Tell us what you need.</h2>
-        <p>Your submission opens a secure, confidential intake in our client portal. An intake coordinator will be in touch within one business day.</p>
-        <ul class="ticks">
-          <li>Confidential and encrypted end-to-end</li>
-          <li>No account needed to begin</li>
-          <li>Track every step in real time</li>
-        </ul>
-        <p class="fine">Submitting an enquiry does not create an attorney-client relationship. That relationship begins only once the firm confirms it in a signed engagement letter.</p>
+        <p>Choose where to begin. Either option opens a secure, confidential matter in our client portal, and someone from our team will be in touch within one business day.</p>
       </div>
 
+      <div class="flow-grid">
       <div class="intake-panel">
         <!-- Mode: launcher (buttons with .js-start-matter open the Moxo Flow Launcher) -->
         <div id="launcher" class="launch-card" hidden>
           <div class="seal">§</div>
+          <p class="eyebrow">New client matter</p>
           <h3>Open a new matter</h3>
           <p>Answer a few questions about you and your matter. You'll verify your email, then go straight into your secure portal to upload documents and follow each step.</p>
           <button type="button" class="btn btn-block js-start-matter">Start a new matter</button>
@@ -188,6 +184,35 @@
           <p class="fine" id="success-ref"></p>
         </div>
       </div>
+
+        <div class="intake-panel">
+          <div id="launcher-compliance" class="launch-card" hidden>
+            <div class="seal">§</div>
+            <p class="eyebrow">Multi-state regulatory compliance</p>
+            <h3>Start a compliance review</h3>
+            <p>Entering a new state, or facing a rule change? Tell us which jurisdictions are involved and we'll map every obligation, close the gaps and handle the filings.</p>
+            <button type="button" class="btn btn-block js-start-compliance">Start a compliance review</button>
+            <ul class="launch-meta">
+              <li>About 5 minutes</li>
+              <li>No account needed</li>
+              <li><a href="regulatory.html">How it works</a></li>
+            </ul>
+          </div>
+          <div id="launcher-compliance-missing" class="notice" hidden>
+            <strong>Start Link not configured.</strong>
+            Add it to <code>config.js</code> → <code>complianceStartLinkUrl</code>.
+          </div>
+        </div>
+      </div>
+
+      <div class="intake-foot">
+        <ul class="ticks">
+          <li>Confidential and encrypted end-to-end</li>
+          <li>No account needed to begin</li>
+          <li>Track every step in real time</li>
+        </ul>
+        <p class="fine">Submitting an enquiry does not create an attorney-client relationship. That relationship begins only once the firm confirms it in a signed engagement letter.</p>
+      </div>
     </div>
   </section>
 
@@ -209,10 +234,10 @@
     </div>
   </footer>
 
-  <div id="flow-modal" class="modal" role="dialog" aria-modal="true" aria-label="Start a new matter" hidden>
+  <div id="flow-modal" class="modal" role="dialog" aria-modal="true" aria-label="Start a matter" hidden>
     <div class="modal-box">
       <button type="button" class="modal-close" aria-label="Close">✕</button>
-      <iframe id="flow-frame" title="Calder &amp; Vance client intake" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <iframe id="flow-frame" title="Calder &amp; Vance client portal" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 

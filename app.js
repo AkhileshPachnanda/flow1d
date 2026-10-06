@@ -2,42 +2,48 @@
   const cfg = window.INTAKE_CONFIG || {};
   const $ = (id) => document.getElementById(id);
 
-  // Opens the flow's Start Link in a modal when any .js-start-matter is clicked
-  function bindStartLink(url) {
-    const modal = $("flow-modal");
-    const frame = $("flow-frame");
+  // Shared modal: opens a flow's Start Link in an iframe
+  const modal = $("flow-modal");
+  const frame = $("flow-frame");
+  const close = () => {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  };
+  modal.querySelector(".modal-close").addEventListener("click", close);
+  modal.addEventListener("click", (e) => e.target === modal && close());
+  document.addEventListener("keydown", (e) => e.key === "Escape" && !modal.hidden && close());
+  window.addEventListener("message", (e) => {
+    if (e.source === frame.contentWindow && e.data && e.data.type === "moxo:launcher:close") close();
+  });
+
+  // Every element matching `selector` opens `url` in the modal
+  function bindStartLink(selector, url) {
     const open = (e) => {
       e.preventDefault();
-      if (!frame.src) frame.src = url;
+      if (frame.getAttribute("src") !== url) frame.src = url;
       modal.hidden = false;
       document.body.style.overflow = "hidden";
     };
-    const close = () => {
-      modal.hidden = true;
-      document.body.style.overflow = "";
-    };
-    document.querySelectorAll(".js-start-matter").forEach((b) => b.addEventListener("click", open));
-    modal.querySelector(".modal-close").addEventListener("click", close);
-    modal.addEventListener("click", (e) => e.target === modal && close());
-    document.addEventListener("keydown", (e) => e.key === "Escape" && !modal.hidden && close());
-    window.addEventListener("message", (e) => {
-      if (e.source === frame.contentWindow && e.data && e.data.type === "moxo:launcher:close") close();
-    });
+    document.querySelectorAll(selector).forEach((b) => b.addEventListener("click", open));
   }
 
-  // Pages set <body data-flow="…"> to choose which flow their buttons launch
-  const isCompliance = document.body.dataset.flow === "compliance";
-  const startLink = isCompliance ? cfg.complianceStartLinkUrl : cfg.startLinkUrl;
-
-  // ── Launcher mode: our buttons open the Moxo Flow Launcher ──
-  if (isCompliance || cfg.mode !== "webhook") {
-    if (startLink) {
-      $("launcher").hidden = false;
-      bindStartLink(startLink);
-      return;
+  // ── Flow 2: Multi-State Regulatory Compliance (.js-start-compliance) ──
+  if ($("launcher-compliance")) {
+    if (cfg.complianceStartLinkUrl) {
+      $("launcher-compliance").hidden = false;
+      bindStartLink(".js-start-compliance", cfg.complianceStartLinkUrl);
+    } else {
+      $("launcher-compliance-missing").hidden = false;
     }
-    if (isCompliance) {
-      $("launcher-missing").hidden = false;
+  }
+  if (!$("launcher")) return; // page has no Flow 1 panel
+
+  // ── Flow 1: Client intake (.js-start-matter) ──
+  // ── Launcher mode: our buttons open the Moxo Flow Launcher ──
+  if (cfg.mode !== "webhook") {
+    if (cfg.startLinkUrl) {
+      $("launcher").hidden = false;
+      bindStartLink(".js-start-matter", cfg.startLinkUrl);
       return;
     }
     if (!cfg.launcherKey) {

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calder &amp; Vance LLP — Counsel for what comes next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fictional firm, built for a Moxo demo -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#" class="brand"><span class="mark">C&amp;V</span> Calder &amp; Vance <em>LLP</em></a>
+      <nav>
+        <a href="#practice">Practice Areas</a>
+        <a href="#process">How We Onboard</a>
+        <a href="#about">The Firm</a>
+        <a href="#intake" class="btn btn-sm js-start-matter">Start a Matter</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Corporate · Disputes · Employment · Real Estate · IP</p>
+      <h1>Counsel for what<br />comes next.</h1>
+      <p class="lede">Tell us about your legal matter and we'll take it from there: conflict checks, scoping, engagement and matter opening, all in one secure client portal. Most clients go from first contact to an active matter in days, not weeks.</p>
+      <div class="hero-cta">
+        <a href="#intake" class="btn js-start-matter">Start a new matter</a>
+        <a href="#process" class="btn btn-ghost">See how it works</a>
+      </div>
+      <dl class="stats">
+        <div><dt>48h</dt><dd>Average conflict clearance</dd></div>
+        <div><dt>1</dt><dd>Secure portal for every document and signature</dd></div>
+        <div><dt>120+</dt><dd>Lawyers across 6 offices</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="practice" class="section">
+    <div class="wrap">
+      <p class="eyebrow">Practice Areas</p>
+      <h2>Focused expertise, one team.</h2>
+      <div class="grid cards">
+        <article><h3>Corporate &amp; M&amp;A</h3><p>Formations, financings, acquisitions, joint ventures and governance.</p></article>
+        <article><h3>Litigation &amp; Disputes</h3><p>Commercial litigation, arbitration and pre-dispute strategy.</p></article>
+        <article><h3>Employment</h3><p>Contracts, investigations, restructuring and workplace compliance.</p></article>
+        <article><h3>Real Estate</h3><p>Acquisitions, leasing, development and finance.</p></article>
+        <article><h3>Intellectual Property</h3><p>Trademarks, licensing, technology transactions and enforcement.</p></article>
+        <article><h3>Regulatory &amp; Compliance</h3><p>Investigations, licensing and regulatory advice.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section alt">
+    <div class="wrap">
+      <p class="eyebrow">How We Onboard</p>
+      <h2>From first contact to active matter.</h2>
+      <p class="sub">Every step happens in your secure Calder &amp; Vance portal. You can see what's done, what's next and who's handling it.</p>
+      <ol class="steps">
+        <li><span>01</span><h4>Tell us about the matter</h4><p>Share the basics and any key documents.</p></li>
+        <li><span>02</span><h4>Conflict &amp; risk check</h4><p>Our risk team confirms we're free to act.</p></li>
+        <li><span>03</span><h4>Legal assessment</h4><p>A partner reviews scope, complexity and staffing.</p></li>
+        <li><span>04</span><h4>Client verification</h4><p>KYC and compliance checks, where required.</p></li>
+        <li><span>05</span><h4>Engagement letter</h4><p>Agree scope and fees, then e-sign.</p></li>
+        <li><span>06</span><h4>Retainer</h4><p>Pay or authorise the retainer securely.</p></li>
+        <li><span>07</span><h4>Matter opened</h4><p>Your legal team is assigned and work begins.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="intake" class="section intake">
+    <div class="wrap intake-inner">
+      <div class="intake-copy">
+        <p class="eyebrow">Start a Matter</p>
+        <h2>Tell us what you need.</h2>
+        <p>Your submission opens a secure, confidential intake in our client portal. An intake coordinator will be in touch within one business day.</p>
+        <ul class="ticks">
+          <li>Confidential and encrypted end-to-end</li>
+          <li>No account needed to begin</li>
+          <li>Track every step in real time</li>
+        </ul>
+        <p class="fine">Submitting an enquiry does not create an attorney-client relationship. That relationship begins only once the firm confirms it in a signed engagement letter.</p>
+      </div>
+
+      <div class="intake-panel">
+        <!-- Mode: launcher (buttons with .js-start-matter open the Moxo Flow Launcher) -->
+        <div id="launcher" class="launch-card" hidden>
+          <div class="seal">§</div>
+          <h3>Open a new matter</h3>
+          <p>Answer a few questions about you and your matter. You'll verify your email, then go straight into your secure portal to upload documents and follow each step.</p>
+          <button type="button" class="btn btn-block js-start-matter">Start a new matter</button>
+          <ul class="launch-meta">
+            <li>About 5 minutes</li>
+            <li>No account needed</li>
+            <li>Confidential</li>
+          </ul>
+        </div>
+        <div id="launcher-missing" class="notice" hidden>
+          <strong>Flow Launcher not configured.</strong>
+          Add your Moxo launcher key to <code>config.js</code> → <code>launcherKey</code>.
+        </div>
+
+        <!-- Mode: webhook -->
+        <form id="intake-form" hidden novalidate>
+          <fieldset>
+            <legend>About you</legend>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="client_type" value="Organization" checked /> Organization</label>
+              <label><input type="radio" name="client_type" value="Individual" /> Individual</label>
+            </div>
+            <div class="row">
+              <label>Full name<input name="client_name" required autocomplete="name" /></label>
+              <label>Email<input name="client_email" type="email" required autocomplete="email" /></label>
+            </div>
+            <div class="row">
+              <label>Phone<input name="client_phone" type="tel" autocomplete="tel" /></label>
+              <label class="org-only">Title / role<input name="client_title" /></label>
+            </div>
+            <label class="org-only">Organization name<input name="company_name" autocomplete="organization" /></label>
+            <label class="check"><input type="checkbox" name="existing_client" value="Yes" /> I am an existing Calder &amp; Vance client</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>The matter</legend>
+            <div class="row">
+              <label>Practice area
+                <select name="practice_area" required>
+                  <option value="">Select…</option>
+                  <option>Corporate &amp; M&amp;A</option>
+                  <option>Litigation &amp; Disputes</option>
+                  <option>Employment</option>
+                  <option>Real Estate</option>
+                  <option>Intellectual Property</option>
+                  <option>Regulatory &amp; Compliance</option>
+                  <option>Other / Not sure</option>
+                </select>
+              </label>
+              <label>Urgency
+                <select name="urgency">
+                  <option>Standard</option>
+                  <option>Urgent (within 1 week)</option>
+                  <option>Emergency (within 48h)</option>
+                </select>
+              </label>
+            </div>
+            <label>Briefly describe your matter<textarea name="matter_description" rows="4" required placeholder="What's happening, what outcome do you want, any key dates?"></textarea></label>
+            <label>Other parties involved <small>(for our conflict check)</small><input name="adverse_parties" placeholder="e.g. counterparty, opposing party, related entities" /></label>
+            <div class="row">
+              <label>Jurisdiction<input name="jurisdiction" placeholder="e.g. New York" /></label>
+              <label>Estimated budget
+                <select name="budget">
+                  <option>Not sure yet</option>
+                  <option>Under $25k</option>
+                  <option>$25k – $100k</option>
+                  <option>$100k – $500k</option>
+                  <option>$500k+</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="org-only">
+            <legend>Other contacts <small>(optional)</small></legend>
+            <div class="row">
+              <label>Authorized signatory name<input name="signatory_name" /></label>
+              <label>Authorized signatory email<input name="signatory_email" type="email" /></label>
+            </div>
+            <div class="row">
+              <label>Finance contact name<input name="finance_name" /></label>
+              <label>Finance contact email<input name="finance_email" type="email" /></label>
+            </div>
+          </fieldset>
+
+          <label class="check"><input type="checkbox" name="consent" required /> I consent to Calder &amp; Vance processing this information to evaluate my matter.</label>
+          <button class="btn btn-block" type="submit">Submit &amp; open my secure portal</button>
+          <p id="form-error" class="error" hidden></p>
+        </form>
+
+        <div id="form-success" class="success" hidden>
+          <div class="seal">✓</div>
+          <h3>Thank you, your intake is underway.</h3>
+          <p>We've sent an invitation to <strong id="success-email"></strong>. Open it to reach your secure Calder &amp; Vance portal, where you can upload documents and follow each step.</p>
+          <p class="fine" id="success-ref"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">The Firm</p>
+        <h2>Senior attention, every matter.</h2>
+      </div>
+      <p>Calder &amp; Vance is a full-service firm advising companies, founders and individuals on their most important decisions. We keep teams lean, communicate clearly, and give clients the same visibility into their matters that we have.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="brand"><span class="mark">C&amp;V</span> Calder &amp; Vance LLP</span>
+      <span>New York · London · Singapore · Demo site, fictional firm</span>
+      <span>Attorney advertising. Prior results do not guarantee a similar outcome.</span>
+    </div>
+  </footer>
+
+  <div id="flow-modal" class="modal" role="dialog" aria-modal="true" aria-label="Start a new matter" hidden>
+    <div class="modal-box">
+      <button type="button" class="modal-close" aria-label="Close">✕</button>
+      <iframe id="flow-frame" title="Calder &amp; Vance client intake" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

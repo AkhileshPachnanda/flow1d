@@ -2,27 +2,19 @@
   const cfg = window.INTAKE_CONFIG || {};
   const $ = (id) => document.getElementById(id);
 
-  // Shared modal: opens a flow's Start Link in an iframe
-  const modal = $("flow-modal");
-  const frame = $("flow-frame");
-  const close = () => {
-    modal.hidden = true;
-    document.body.style.overflow = "";
-  };
-  modal.querySelector(".modal-close").addEventListener("click", close);
-  modal.addEventListener("click", (e) => e.target === modal && close());
-  document.addEventListener("keydown", (e) => e.key === "Escape" && !modal.hidden && close());
-  window.addEventListener("message", (e) => {
-    if (e.source === frame.contentWindow && e.data && e.data.type === "moxo:launcher:close") close();
-  });
-
-  // Every element matching `selector` opens `url` in the modal
+  // Every element matching `selector` opens `url` in its own browser window.
+  // Not an iframe: after the start form, Moxo moves to pages (e.g. /action/<token>)
+  // whose CSP is frame-ancestors 'self', so they can't load inside our site.
   function bindStartLink(selector, url) {
     const open = (e) => {
       e.preventDefault();
-      if (frame.getAttribute("src") !== url) frame.src = url;
-      modal.hidden = false;
-      document.body.style.overflow = "hidden";
+      const w = Math.min(760, screen.availWidth);
+      const h = Math.min(860, screen.availHeight);
+      const left = Math.round((screen.availWidth - w) / 2);
+      const top = Math.round((screen.availHeight - h) / 2);
+      const win = window.open(url, "moxo-flow", `popup,width=${w},height=${h},left=${left},top=${top}`);
+      if (win) win.focus();
+      else window.location.href = url; // popup blocked: continue in this tab
     };
     document.querySelectorAll(selector).forEach((b) => b.addEventListener("click", open));
   }
